@@ -45,6 +45,7 @@ public class RequestParamValied {
 
     @Before("controllerBefore()")
     public void before(JoinPoint point) throws RuntimeException {
+        log.info("========>参数校验开始");
         //  获得切入目标对象
         Object target = point.getThis();
         //  获得切入目标参数
@@ -60,8 +61,9 @@ public class RequestParamValied {
             for (ConstraintViolation<Object> constraintViolation : validResult) {
                 messageList.add(constraintViolation.getMessage());
             }
+            log.info("========>参数校验异常：{}" , messageList);
             throw new RuntimeException(messageList.toString());
-
         }
+        log.info("========>参数校验结束");
     }
 }
