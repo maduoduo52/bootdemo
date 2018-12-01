@@ -1,0 +1,889 @@
+body{
+	font-family: "Microsoft YaHei";
+	margin: 0;
+}
+h3,h4,p,ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.fl{
+	float: left;
+}
+body,html{min-width: 738px;}
+@media screen and (min-width:1400px){
+		.container{
+		width: 1900px;
+		margin: 0 auto;
+	}
+	.title{
+		/*width: 100%;*/
+		background-color: #1b82f6 ;
+	}
+	.main{
+		width: 100%;
+		background-color: #fff;
+	}
+	h3{
+		width: 1900px;
+		height: 60px;
+		color: #fff;
+		margin: 0 auto;
+		line-height: 60px;
+		font-weight: lighter;
+		font-size: 18px;
+	}
+	h4{
+		width: 1900px;
+		background-color: #6ab8ff;
+		height: 33px;
+		line-height: 33px;
+		color: #fff;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+	.detailInfo{
+		width: 1900px;
+		height: 620px;
+	}
+	.detailInfo-left{
+		float: left;
+		width: 754px;
+		padding-top: 17px;
+	}
+	.detailInfo-left li,.gsd{
+		height: 42px;
+		line-height: 42px;
+		padding-left: 25px;
+		color: #262626;
+		font-size: 14px;
+	}
+	.detailInfo-left li span{
+		margin-left: 5px;
+	}
+	.gsd{
+		padding-left: 0;
+	}
+	.detailInfo-right{
+		width: 780px;
+		float: left;
+		font-size: 14px;
+	}
+	.detailInfo-right li{
+		overflow: hidden;
+		clear: both;
+	}
+	.idCardPic{
+		overflow: hidden;
+		clear: both;
+		height: 126px;
+	}
+	.idCardPic .sfz{
+		line-height: 126px;
+	}
+	.idCardPic1,.idCardPic2{
+		float: left;
+		/*margin-top: 20px;*/
+		display: inline-block;
+		width: 40%;
+		height:120px;
+		line-height: 1.5;
+		text-align: center;
+		margin-left: 25px;
+	}
+	.idCardPic img{display: inline-block;width:300px;height:120px;}
+	.face{
+		margin: 0 0 50px 25px;
+	}
+	.jlxReport{
+		width: 200px;
+		float: left;
+		margin-bottom: 50px;
+	}
+	.look{
+		width: 38px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background-color: #60a3f8;
+		color: #fff;
+		display: inline-block;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+	}
+	.jlxReport div,.cktxl span,.jlxReport a,.cktxl a{
+		margin-left: 10px;
+	}
+	
+	
+	
+	.renzhengInfo,.employerInfo,.cardInfo,.contactInfo,.borrowInfo{
+		width: 1900px;
+	}
+	.renzhengInfo li,.employerInfo li,.cardInfo li,.contactInfo li,.borrowInfo li{	 
+		width: 100%;
+		border-bottom: #dcdcdc solid 1px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #333;
+		overflow: hidden;
+		clear: both;
+	}
+	.renzhengInfo li .APIName{
+		width:260px;
+		padding-left: 10px;
+		float: left;
+	}
+	.renzhengInfo li .result{
+		width:250px;
+		float: left;
+	}
+	.renzhengInfo li .time{
+		width:320px;
+		float: left;
+	}
+	.renzhengInfo li .APIArgu{
+		width:340px;
+		float: left;
+	}
+	.renzhengInfo li .APIReport{
+		width:710px;
+		float: left;
+	}
+	.APIReport .reason{
+		color: #cf3a3a;
+		padding-left: 26px;
+	}
+	
+	.listHead{
+		font-weight: bold;
+		color: #262626;
+	}
+	.employerInfo span{
+		float: left;
+		margin-right: 87px;
+		padding-left: 10px;
+	}
+	.cardInfo span{
+		float: left;
+	}
+	.bankCard{
+		padding-left: 10px;
+		width: 450px;
+	}
+	.bankName{
+		width: 388px;
+	}
+	.bankTel{
+		width: 582px;
+	}
+	.bankPIc{
+		width: 470px;
+	}
+	.bankPIc img{
+		margin-top: 10px;
+	}
+	.contactInfo span{
+		float: left;
+	}
+	.contactName{
+		width: 460px;
+		padding-left: 10px;
+	}
+	.contactTel{
+		width: 250px;
+	}
+	.telPlace{
+		width: 330px;
+	}
+	.relation{
+		width: 300px;
+	}
+	.borrowInfo span{
+		float: left;
+	}
+	.applyTime{
+		padding-left: 10px;
+		width: 260px;
+	}
+	.borrowNum{
+		width: 250px;
+	}
+	.borrowPrice{
+		width: 328px;
+	}
+	.borrowDay{
+		width: 337px;
+	}
+	.borrowState{
+		width: 345px;
+	}
+	.checkTime{
+		width: 360px;
+	}
+	.noninfo{padding-left: 30%;font-size: 18px;padding-top:1%;display: none;}
+	.panel-icon, .panel-tool{position: fixed;}
+}
+
+@media screen and (max-width:1400px){
+		.container{
+		width: 100%px;
+		margin: 0 auto;
+	}
+	.title{
+		/*width: 100%;*/
+		background-color: #1b82f6 ;
+	}
+	.main{
+		width: 100%;
+		background-color: #fff;
+	}
+	h3{
+		width: 100%px;
+		height: 60px;
+		color: #fff;
+		margin: 0 auto;
+		line-height: 60px;
+		font-weight: lighter;
+		font-size: 18px;
+	}
+	h4{
+		width: 100%px;
+		background-color: #6ab8ff;
+		height: 33px;
+		line-height: 33px;
+		color: #fff;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+	.detailInfo{
+		width: 100%px;
+		height: 732px;
+	}
+	.detailInfo-left{
+		float: left;
+		width: 50%;
+		padding-top: 17px;
+	}
+	.detailInfo-left li,.gsd{
+		height: 42px;
+		line-height: 42px;
+		padding-left: 25px;
+		color: #262626;
+		font-size: 14px;
+	}
+	.detailInfo-left li span{
+		margin-left: 5px;
+	}
+	.gsd{
+		padding-left: 0;
+	}
+	.detailInfo-right{
+		width: 50%;
+		float: left;
+		font-size: 14px;
+		height: 732px;
+	}
+	.detailInfo-right li{
+		overflow: hidden;
+		clear: both;
+		width: 400px;
+	}
+	.idCardPic{
+		overflow: hidden;
+		clear: both;
+		height: 245px;
+	}
+	.idCardPic .sfz{
+		line-height: 126px;
+	}
+	.idCardPic1,.idCardPic2{
+		float: left;
+		/*margin-top: 20px;*/
+		display: inline-block;
+		width: 40%;
+		height:120px;
+		line-height: 1.5;
+		text-align: center;
+		margin-left: 25px;
+	}
+	.idCardPic img{display:block;width:300px;height:120px;}
+	.face{
+		margin: 0 0 50px 25px;
+	}
+	.jlxReport{
+		width: 200px;
+		float: left;
+		margin-bottom: 50px;
+	}
+	.look{
+		width: 38px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background-color: #60a3f8;
+		color: #fff;
+		display: inline-block;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+	}
+	.jlxReport div,.cktxl span,.jlxReport a,.cktxl a{
+		margin-left: 10px;
+	}
+	
+	
+	
+	.renzhengInfo,.employerInfo,.cardInfo,.contactInfo,.borrowInfo{
+		width: 100%;
+	}
+	.renzhengInfo li,.employerInfo li,.cardInfo li,.contactInfo li,.borrowInfo li{	 
+		width: 100%;
+		border-bottom: #dcdcdc solid 1px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #333;
+		overflow: hidden;
+		clear: both;
+		
+	}
+	.renzhengInfo li .APIName{
+		width: 24%;
+		padding-left: 1%;
+		float: left;
+	}
+	.renzhengInfo li .result{
+		width: 25%;
+		float: left;
+	}
+	.renzhengInfo li .time{
+		width: 25%;
+		float: left;
+	}
+	.renzhengInfo li .APIArgu{
+		width: 25%;
+		float: left;
+	}
+	.renzhengInfo li .APIReport{
+		width: 25%;
+		float: left;
+	}
+	.APIReport .reason{
+		color: #cf3a3a;
+		padding-left: 26px;
+	}
+	
+	.listHead{
+		font-weight: bold;
+		color: #262626;
+	}
+	.employerInfo span{
+		float: left;
+		margin-right: 87px;
+		padding-left: 10px;
+	}
+	.cardInfo span{
+		float: left;
+	}
+	.bankCard{
+		padding-left: 1%;
+		width: 34%;
+	}
+	.bankName{
+		width: 35%;
+	}
+	.bankTel{
+		width: 30%;
+	}
+	.bankPIc{
+		width: 470px;
+	}
+	.bankPIc img{
+		margin-top: 10px;
+	}
+	.contactInfo span{
+		float: left;
+	}
+	.contactName{
+		width: 24%;
+		padding-left: 1%;
+	}
+	.contactTel{
+		width: 25%;
+	}
+	.telPlace{
+		width: 25%;
+	}
+	.relation{
+		width: 25%;
+	}
+	.borrowInfo span{
+		float: left;
+	}
+	.applyTime{
+		padding-left: 10px;
+		width: 150px;
+	}
+	.borrowNum{
+		width: 150px;
+	}
+	.borrowPrice{
+		width: 150px;
+	}
+	.borrowDay{
+		width: 150px;
+	}
+	.borrowState{
+		width: 150px;
+	}
+	.checkTime{
+		width: 150px;
+	}
+	.noninfo{padding-left: 30%;font-size: 18px;padding-top:1%;display: none;}
+	.panel-icon, .panel-tool{position: fixed;}
+}
+
+@media screen and (max-width:900px){
+		.container{
+		width: 100%px;
+		margin: 0 auto;
+	}
+	.title{
+		/*width: 100%;*/
+		background-color: #1b82f6 ;
+	}
+	.main{
+		width: 100%;
+		background-color: #fff;
+	}
+	h3{
+		width: 100%px;
+		height: 60px;
+		color: #fff;
+		margin: 0 auto;
+		line-height: 60px;
+		font-weight: lighter;
+		font-size: 18px;
+	}
+	h4{
+		width: 100%px;
+		background-color: #6ab8ff;
+		height: 33px;
+		line-height: 33px;
+		color: #fff;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+	.detailInfo{
+		width: 100%px;
+		height: 732px;
+	}
+	.detailInfo-left{
+		float: left;
+		width: 50%;
+		padding-top: 17px;
+	}
+	.detailInfo-left li,.gsd{
+		height: 42px;
+		line-height: 42px;
+		padding-left: 25px;
+		color: #262626;
+		font-size: 14px;
+	}
+	.detailInfo-left li span{
+		margin-left: 5px;
+	}
+	.gsd{
+		padding-left: 0;
+	}
+	.detailInfo-right{
+		width: 50%;
+		float: left;
+		font-size: 14px;
+		height: 732px;
+	}
+	.detailInfo-right li{
+		overflow: hidden;
+		clear: both;
+	}
+	.idCardPic{
+		overflow: hidden;
+		clear: both;
+		height: 245px;
+	}
+	.idCardPic .sfz{
+		line-height: 126px;
+	}
+	.idCardPic1,.idCardPic2{
+		float: left;
+		/*margin-top: 20px;*/
+		display: inline-block;
+		width: 40%;
+		height:120px;
+		line-height: 1.5;
+		text-align: center;
+		margin-left: 25px;
+	}
+	.idCardPic img{display: inline-block;width:300px;height:120px;}
+	.face{
+		margin: 0 0 50px 25px;
+	}
+	.jlxReport{
+		width: 200px;
+		float: left;
+		margin-bottom: 50px;
+	}
+	.look{
+		width: 38px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background-color: #60a3f8;
+		color: #fff;
+		display: inline-block;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+	}
+	.jlxReport div,.cktxl span,.jlxReport a,.cktxl a{
+		margin-left: 10px;
+	}
+	
+	
+	
+	.renzhengInfo,.employerInfo,.cardInfo,.contactInfo,.borrowInfo{
+		width: 900px;
+	}
+	.cardInfo{width:100%}
+	.contactInfo{width:100%}
+	
+	.renzhengInfo li,.employerInfo li,.cardInfo li,.contactInfo li,.borrowInfo li{	 
+		width: 100%;
+		border-bottom: #dcdcdc solid 1px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #333;
+		overflow: hidden;
+		clear: both;
+		
+	}
+	.renzhengInfo li .APIName{
+		width:24%;
+		padding-left: 1%;
+		float: left;
+	}
+	.renzhengInfo li .result{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .time{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .APIArgu{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .APIReport{
+		width:25%;
+		float: left;
+	}
+	.APIReport .reason{
+		color: #cf3a3a;
+		padding-left: 26px;
+	}
+	
+	.listHead{
+		font-weight: bold;
+		color: #262626;
+	}
+	.employerInfo{width:100%}
+	.employerInfo span{
+		float: left;
+		margin-right: 87px;
+		padding-left: 10px;
+	}
+	.cardInfo span{
+		float: left;
+	}
+	.bankCard{
+		padding-left: 1%;
+		width: 34%;
+	}
+	.bankName{
+		width: 35%;
+	}
+	.bankTel{
+		width: 30%;
+	}
+	.bankPIc{
+		width: 470px;
+	}
+	.bankPIc img{
+		margin-top: 10px;
+	}
+	.contactInfo span{
+		float: left;
+	}
+	.contactName{
+		width: 24%;
+		padding-left: 1%;
+	}
+	.contactTel{
+		width: 25%;
+	}
+	.telPlace{
+		width: 25%;
+	}
+	.relation{
+		width: 25%;
+	}
+	.borrowInfo span{
+		float: left;
+	}
+	.applyTime{
+		padding-left: 10px;
+		width: 150px;
+	}
+	.borrowNum{
+		width: 150px;
+	}
+	.borrowPrice{
+		width: 150px;
+	}
+	.borrowDay{
+		width: 150px;
+	}
+	.borrowState{
+		width: 150px;
+	}
+	.checkTime{
+		width: 100px;
+	}
+	.noninfo{padding-left: 30%;font-size: 18px;padding-top:1%;display: none;}
+	.panel-icon, .panel-tool{position: fixed;}
+}
+
+
+@media screen and (max-width:750px){
+		.container{
+		width: 100%px;
+		margin: 0 auto;
+	}
+	.title{
+		/*width: 100%;*/
+		background-color: #1b82f6 ;
+	}
+	.main{
+		width: 100%;
+		background-color: #fff;
+	}
+	h3{
+		width: 100%px;
+		height: 60px;
+		color: #fff;
+		margin: 0 auto;
+		line-height: 60px;
+		font-weight: lighter;
+		font-size: 18px;
+	}
+	h4{
+		width: 100%px;
+		background-color: #6ab8ff;
+		height: 33px;
+		line-height: 33px;
+		color: #fff;
+		font-size: 14px;
+		margin: 0 auto;
+	}
+	.detailInfo{
+		width: 100%px;
+		height: 732px;
+	}
+	.detailInfo-left{
+		float: left;
+		width: 50%;
+		padding-top: 17px;
+	}
+	.detailInfo-left li,.gsd{
+		height: 42px;
+		line-height: 42px;
+		padding-left: 25px;
+		color: #262626;
+		font-size: 14px;
+	}
+	.detailInfo-left li span{
+		margin-left: 5px;
+	}
+	.gsd{
+		padding-left: 0;
+	}
+	.detailInfo-right{
+		width: 50%;
+		float: left;
+		font-size: 14px;
+		height: 732px;
+	}
+	.detailInfo-right li{
+		overflow: hidden;
+		clear: both;
+	}
+	.idCardPic{
+		overflow: hidden;
+		clear: both;
+		height: 245px;
+	}
+	.idCardPic .sfz{
+		line-height: 126px;
+	}
+	.idCardPic1,.idCardPic2{
+		float: left;
+		/*margin-top: 20px;*/
+		display: inline-block;
+		width: 40%;
+		height:120px;
+		line-height: 1.5;
+		text-align: center;
+		margin-left: 25px;
+	}
+	.idCardPic img{display: inline-block;width:300px;height:120px;}
+	.face{
+		margin: 0 0 50px 25px;
+	}
+	.jlxReport{
+		width: 200px;
+		float: left;
+		margin-bottom: 50px;
+	}
+	.look{
+		width: 38px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background-color: #60a3f8;
+		color: #fff;
+		display: inline-block;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+	}
+	.jlxReport div,.cktxl span,.jlxReport a,.cktxl a{
+		margin-left: 10px;
+	}
+	
+	
+	
+	.renzhengInfo,.employerInfo,.cardInfo,.contactInfo,.borrowInfo{
+		width: 100%;
+	}
+	.cardInfo{width:100%}
+	.contactInfo{width:100%}
+	
+	.renzhengInfo li,.employerInfo li,.cardInfo li,.contactInfo li,.borrowInfo li{	 
+		width: 100%;
+		border-bottom: #dcdcdc solid 1px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #333;
+		overflow: hidden;
+		clear: both;
+		
+	}
+	.renzhengInfo li .APIName{
+		width:24%;
+		padding-left: 1%;
+		float: left;
+	}
+	.renzhengInfo li .result{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .time{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .APIArgu{
+		width:25%;
+		float: left;
+	}
+	.renzhengInfo li .APIReport{
+		width:25%;
+		float: left;
+	}
+	.APIReport .reason{
+		color: #cf3a3a;
+		padding-left: 26px;
+	}
+	
+	.listHead{
+		font-weight: bold;
+		color: #262626;
+	}
+	.employerInfo{width:100%}
+	.employerInfo span{
+		float: left;
+		margin-right: 87px;
+		padding-left: 10px;
+	}
+	.cardInfo span{
+		float: left;
+	}
+	.bankCard{
+		padding-left: 1%;
+		width: 34%;
+	}
+	.bankName{
+		width: 35%;
+	}
+	.bankTel{
+		width: 30%;
+	}
+	.bankPIc{
+		width: 470px;
+	}
+	.bankPIc img{
+		margin-top: 10px;
+	}
+	.contactInfo span{
+		float: left;
+	}
+	.contactName{
+		width: 24%;
+		padding-left: 1%;
+	}
+	.contactTel{
+		width: 25%;
+	}
+	.telPlace{
+		width: 25%;
+	}
+	.relation{
+		width: 25%;
+	}
+	.borrowInfo span{
+		float: left;
+	}
+	.applyTime{
+		padding-left: 10px;
+		width: 120px;
+	}
+	.borrowNum{
+		width: 120px;
+	}
+	.borrowPrice{
+		width: 120px;
+	}
+	.borrowDay{
+		width: 120px;
+	}
+	.borrowState{
+		width: 120px;
+	}
+	.checkTime{
+		width: 100px;
+	}
+	.noninfo{padding-left: 30%;font-size: 18px;padding-top:1%;display: none;}
+	.panel-icon, .panel-tool{position: fixed;}
+}

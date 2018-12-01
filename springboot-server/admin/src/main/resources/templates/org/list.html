@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link href="../../css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+        <link href="../../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+        <link href="../../css/animate.min.css" rel="stylesheet">
+        <link href="../../css/style.min.css?v=4.0.0" rel="stylesheet">
+        <link href="../../ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+        <link href="../../css/page.css" rel="stylesheet">
+    </head>
+    <body class="gray-bg">
+        <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="ibox ibox-title">
+                        <div class="ibox-content menuTree" style="overflow: auto;" id="menuTree">
+                            <ul id="treeDemo" class="ztree"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7 animated fadeInRight" style="display: none" id="menuINFO">
+                    <div class="mail-box-header">
+                        <h2>
+                            组织机构详情
+                        </h2>
+                        <div class="mail-tools tooltip-demo m-t-md">
+                            <button class="btn btn-info btn-sm" data-toggle="tooltip" onclick="add()"  id="add" data-placement="left">
+                                <i class="glyphicon glyphicon-plus"></i> 添加组织机构
+                            </button>
+                            <button class="btn btn-info btn-sm" data-toggle="tooltip" onclick="edit()" id="edit" data-placement="left">
+                                <i class="fa fa-edit"></i> 编辑组织机构
+                            </button>
+                            <button class="btn btn-danger btn-sm" data-toggle="tooltip" onclick="del()" id="delete" data-placement="top">
+                                <i class="fa fa-remove"></i> 删除组织机构
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mail-box">
+                        <table class="table table-hover table-mail">
+                            <tbody>
+                                <tr class="read">
+                                    <td style="width: 12%;">组织机构ID:</td>
+                                    <td id="id"></td>
+                                </tr>
+                                <tr class="read">
+                                    <td style="width: 12%;">组织机构名称:</td>
+                                    <td id="name"></td>
+                                </tr>
+                                <tr class="read">
+                                    <td>类型:</td>
+                                    <td id="type"></td>
+                                </tr>
+                                <tr class="read">
+                                    <td>状态:</td>
+                                    <td id="status"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../../js/jquery.min.js?v=2.1.4"></script>
+        <script src="../../js/bootstrap.min.js?v=3.3.5"></script>
+        <script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="../../js/plugins/layer/layer.min.js"></script>
+        <script src="../../js/hplus.min.js?v=4.0.0"></script>
+        <script src="../../js/contabs.min.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../ztree/js/jquery.ztree.core.js"></script>
+        <script>
+            var PID = 0;
+            var PNAME = 0;
+            var treeObj ;
+            var isAdd = false;
+            var setting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "parent",
+                    },
+                    key:{
+                        name:"name",
+                    },
+                },
+                callback: {
+                    onClick: zTreeOnClick
+                },
+            };
+            function zTreeOnClick(event, treeId, treeNode) {
+                if(treeNode.rootFlag || treeNode.isParent){
+                    $("#delete").hide();
+                }else{
+                    $("#delete").show();
+                }
+                PID = treeNode.id;
+                PNAME = treeNode.name;
+                $("#name").html(treeNode.name);
+                $("#id").html(treeNode.id);
+                $("#type").html(treeNode.type);
+                $("#status").html(treeNode.status?"<span style='color: #00B83F'>启用</span>":"<span  style='color: red'>禁用</span>");
+                $("#menuINFO").show();
+            };
+
+           function add(){
+                layer.open({
+                    skin: 'layui-layer-molv',
+                    type: 2,
+                    title:"菜单添加",
+                    shadeClose: false, //开启遮罩关闭
+                    shade:0.4,
+                    area: ['893px', '340px'],
+                    content: '/org/savePage.html',
+                });
+            };
+            function edit() {
+                layer.open({
+                    skin: 'layui-layer-molv',
+                    type: 2,
+                    title:"菜单编辑",
+                    shadeClose: false, //开启遮罩关闭
+                    shade:0.4,
+                    area: ['893px', '340px'],
+                    content: '/org/savePage.html?id='+PID,
+                });
+            };
+
+            function del(){
+                layer.confirm('您确定需要删除？', {
+                    skin: 'layui-layer-molv',
+                    btn: ['确定','点错了'] //按钮
+                }, function(){
+                    basePost("/org/delete.html",{id:PID},function (data) {
+                        layer.closeAll();
+                        //询问框
+                        layer.alert('删除成功!', {
+                            icon:1,
+                            skin: 'layui-layer-molv',
+                            btn: ['确定'] //按钮
+                        }, function(){
+                            window.location.reload();
+                        });
+                    });
+                }, function(){
+                });
+            }
+
+            function gengxin(){
+                layer.closeAll();
+                //询问框
+                layer.alert('保存成功!', {
+                    icon:1,
+                    skin: 'layui-layer-molv',
+                    btn: ['确定'] //按钮
+                }, function(){
+                    window.location.reload();
+                });
+            }
+
+            $(function () {
+                $(".full-height-scroll").slimScroll({height: "100%"});
+                baseGet("/org/getAll.html",null,function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].urlk = data[i].url;
+                        data[i].url = null;
+                    }
+                    $.fn.zTree.init($("#treeDemo"), setting, data);
+                    treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+                });
+                $(".menuTree").height($(".gray-bg").height()-100);
+            });
+        </script>
+    </body>
+</html>

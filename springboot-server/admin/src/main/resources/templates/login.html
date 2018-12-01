@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<title>登录</title>
+	<meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+	<link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/style.min.css" rel="stylesheet">
+	<link href="css/login.min.css" rel="stylesheet">
+	<!--[if lt IE 8]>
+	<meta http-equiv="refresh" content="0;ie.html" />
+	<![endif]-->
+	<script>
+        if (window.top !== window.self) {
+            window.top.location = window.location
+        };
+	</script>
+	<style type="text/css">
+		option {
+			color: #000;
+		}
+		.color {
+			color: #000000 !important;
+		}
+		.relative {
+			position: relative;
+		}
+		.position {
+			position: absolute;
+			top: 32px;
+			left: -1px;
+			width: 100%;
+			height: 90px;
+			background: #fff;
+			border: 1px solid #ccc;
+			box-sizing: initial;
+		}
+		.height {
+			height: 30px;
+			line-height: 30px;
+			background: transparent url(css/logo.png) no-repeat scroll 3px 6px;
+			background-size: 20px 20px;
+			padding-left: 30px;
+
+		}
+		.height:hover {
+			background-color: #eee;
+		}
+		.none {
+			display: none;
+		}
+		.colorgary {
+			color: #999;
+		}
+	</style>
+</head>
+
+<body class="signin">
+<div class="signinpanel" id="login">
+	<div class="row" style="width: 800px;margin: auto">
+		<div class="col-sm-4" style="color:rgba(255,255,255,0.5) ;font-size: 45px;">
+			WELCOME
+		</div>
+		<div class="col-sm-8">
+			<div style="color: #fff;font-size: 43px;">
+				MDD-BootDemo·管理系统
+			</div>
+		</div>
+	</div>
+	<div class="row" style="width: 80%;margin:auto;margin-top: 5%;">
+		<div class="col-sm-7">
+			<div class="signin-info">
+				<div class="logopanel m-b">
+					<img style="width: 75%" src="../img/Bitmap1.png" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div id="content" style="width: 50%;margin-top: 120px" >
+				<p class="m-t-md " id="name" style="color: #e43;"></p>
+				<input type="text" class="form-control uname" placeholder="用户名" onblur="posts()" id="userName" />
+				<input type="password" class="form-control pword m-b" placeholder="密码" id="passWord" />
+
+				<select class="form-control" id="postId">
+					<option value="">请选择职位</option>
+				</select>
+
+				<button class="btn btn-success btn-block" onclick="login()">登录</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
+<script src="js/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+<script src="js/base.js"></script>
+<script type="text/javascript">
+    function login() {
+        basePost("./login.html",{
+            username:$("#userName").val(),
+			pwd:$("#passWord").val(),
+            postId:$("#postId").val(),
+		},function (data) {
+            location.href="./index.html";
+        });
+    }
+
+    function posts() {
+        if($("#userName").val()!=""){
+            baseGet("/user/getPostListByUserName.html",{
+                userName:$("#userName").val(),
+            },function (data) {
+                if(data.length>0){
+                    $("#postId").html("");
+                    for (var i = 0; i <data.length ; i++) {
+                        $("#postId").append('<option value="'+data[i].id+'">'+data[i].name+'</option>')
+                    }
+				}
+            });
+		}
+    }
+</script>

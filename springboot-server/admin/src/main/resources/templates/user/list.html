@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="../../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="../../ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <link href="../../css/page.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="ibox ibox-title">
+                <div class="ibox-content menuTree" style="overflow: auto;" id="menuTree">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8" id="menuINFO">
+
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery.min.js?v=2.1.4"></script>
+<script src="../../js/bootstrap.min.js?v=3.3.5"></script>
+<script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="../../js/hplus.min.js?v=4.0.0"></script>
+<script src="../../js/contabs.min.js"></script>
+<script src="../../js/base.js"></script>
+<script src="../../ztree/js/jquery.ztree.core.js"></script>
+<script>
+    var PID ;
+    var treeObj ;
+    var isAdd = false;
+    var setting = {
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                pIdKey: "parent",
+            },
+            key:{
+                name:"name",
+            },
+        },
+        callback: {
+            onClick: zTreeOnClick
+        },
+    };
+    function zTreeOnClick(event, treeId, treeNode) {
+        PID = treeNode.id;
+        $.ajax({
+            url:"/user/selectUserList.html",    //请求的url地址
+            dataType:"html",   //返回格式为json
+            type:"GET",   //请求方式
+            data:{
+                orgId:PID,
+            },
+            success:function(req){
+                $("#menuINFO").html(req);
+            }
+        });
+
+    };
+
+    function add(){
+        if(PID){
+            layer.open({
+                skin: 'layui-layer-molv',
+                type: 2,
+                title:"用户添加",
+                shadeClose: false, //开启遮罩关闭
+                shade:0.4,
+                area: ['893px', '440px'],
+                content: '/user/savePage.html',
+            });
+        }else{
+            layer.alert("请先选择机构",{ skin: 'layui-layer-molv',icon:0})
+        }
+
+    };
+
+    function authority(b) {
+        var id = $(b).attr("uid");
+        layer.open({
+            skin: 'layui-layer-molv',
+            type: 2,
+            title:"权限管理",
+            shadeClose: false, //开启遮罩关闭
+            shade:0.4,
+            area: ['50%', '700px'],
+            content: '/user/authority.html?userId='+id,
+        });
+    }
+
+    function edit(b) {
+        var id = $(b).attr("uid");
+        layer.open({
+            skin: 'layui-layer-molv',
+            type: 2,
+            title:"用户编辑",
+            shadeClose: false, //开启遮罩关闭
+            shade:0.4,
+            area: ['893px', '440px'],
+            content: '/user/savePage.html?id='+id,
+        });
+    };
+
+    function del(b){
+        var id = $(b).attr("uid");
+        layer.confirm('您确定需要删除？', {
+            skin: 'layui-layer-molv',
+            btn: ['确定','点错了'] //按钮
+        }, function(){
+            basePost("/user/delete.html",{id:id},function (data) {
+                layer.closeAll();
+                //询问框
+                layer.alert('删除成功!', {
+                    icon:1,
+                    skin: 'layui-layer-molv',
+                    btn: ['确定'] ,//按钮
+                }, function(){
+                    layer.closeAll();
+                    $.ajax({
+                        url:"/user/selectUserList.html",    //请求的url地址
+                        dataType:"html",   //返回格式为json
+                        type:"GET",   //请求方式
+                        data:{
+                            orgId:PID,
+                        },
+                        success:function(req){
+                            $("#menuINFO").html(req);
+                        }
+                    });
+                });
+            });
+        }, function(){
+        });
+    }
+
+    function gengxin(){
+        layer.closeAll();
+        //询问框
+        layer.alert('保存成功!', {
+            icon:1,
+            skin: 'layui-layer-molv',
+            btn: ['确定'] //按钮
+        }, function(){
+            layer.closeAll();
+            $.ajax({
+                url:"/user/selectUserList.html",    //请求的url地址
+                dataType:"html",   //返回格式为json
+                type:"GET",   //请求方式
+                data:{
+                    orgId:PID,
+                },
+                success:function(req){
+                    $("#menuINFO").html(req);
+                }
+            });
+        });
+    }
+
+    $(function () {
+        $(".full-height-scroll").slimScroll({height: "100%"});
+        baseGet("/org/getAll.html",null,function (data) {
+            for (var i = 0; i < data.length; i++) {
+                data[i].urlk = data[i].url;
+                data[i].url = null;
+            }
+            $.fn.zTree.init($("#treeDemo"), setting, data);
+            treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        });
+        $(".menuTree").height($(".gray-bg").height()-100);
+        $.ajax({
+            url:"/user/selectUserList.html",    //请求的url地址
+            dataType:"html",   //返回格式为json
+            type:"GET",   //请求方式
+            success:function(req){
+                $("#menuINFO").html(req);
+
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

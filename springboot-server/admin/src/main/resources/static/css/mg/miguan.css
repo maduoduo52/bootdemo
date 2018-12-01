@@ -1,0 +1,289 @@
+html,body,p,div,span,a,ul,li,button,img,input{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	
+}
+a{
+	text-decoration: none;
+	outline: none;
+}
+ul,li{
+	list-style: none;
+}
+button{
+	cursor: pointer; 
+	border: none;
+	background: #fff;
+}
+textarea{resize: none}
+img{
+	border:0;
+	vertical-align: middle;
+}
+input{
+	outline: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+/*清除浮动*/
+.cb{clear:both;}
+.ds{display:block;}
+.hid{overflow:hidden;}
+.clearfix:after{
+	display:block;
+	clear:both;
+	content:'.';
+	font-size:0;
+	}
+.clear{
+	height:1px;
+	overflow:hidden;
+	clear:both;
+}
+span{
+	border-radius: 6px;
+	padding:0 20px;
+	/*border: 1px solid #e43;*/
+	box-sizing: border-box;
+
+}
+li{
+	box-sizing: border-box;
+}
+.report{
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	width: 1200px;
+	box-sizing:border-box;
+	
+}
+.reportBox{
+	margin-top: 20px;
+	box-shadow: 0px 8px 15px 4px #b7b7b7;
+}
+.reportTop{
+	width: 1200px;
+	padding: 15px 20px;
+	box-sizing: border-box;
+	border: 1px solid sandybrown;
+	background: bisque;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+}
+.reportBoxTop{
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid sandybrown;
+	font-weight:bold ;
+	font-size: 20px;
+	background: bisque;
+}
+.reportBoxCont{
+	
+}
+.reportBoxContUl{
+	
+}
+.reportBoxContLi{
+	border-bottom: 1px solid #eee;
+	font-size: 14px ;
+	
+}
+.reportBoxContLi>div{
+	border-right: 1px solid #eee;
+	box-sizing: border-box;
+	padding: 10px 0 10px 10px ;
+	color: #555A5A;
+}
+.reportBoxContLi>div:first-child{
+	border-left:1px solid #eee ;
+}
+.reportBoxContLi>div:nth-of-type(odd){
+	/*奇数*/
+	width: 20%;
+}
+.reportBoxContLi>div:nth-of-type(even){
+	/*偶数*/
+	width: 30%;
+}
+.reportBoxContTwoLi{
+	border-bottom: 1px solid #eee;
+	color: #555A5A;
+	border-left:1px solid #eee ;
+	border-right:1px solid #eee ;
+}
+.reportBoxContTwoLiCount{
+	border-right:1px solid #eee ;
+	box-sizing: border-box;
+	width: 20%;
+	padding: 10px 10px ;
+}
+.reportBoxContTwoLiNum{
+	box-sizing: border-box;
+	width: 80%;
+	padding: 10px 10px ;
+}
+.reportBoxContTwoLiStatis{
+	width: 20%;
+	padding: 30px 10px;
+	box-sizing: border-box;
+}
+.reportBoxContTwoLiStatisUl ul li{
+	float: left;
+	padding: 10px 10px ;
+	width: 25%;
+	box-sizing: border-box;
+	text-align: center;
+	
+}
+.reportBoxContTwoLiStatisUl ul{
+	border-bottom: 1px solid #eee;
+}
+.reportBoxContTwoLiStatisUl ul:last-child{
+	border-bottom: 0;
+}
+.reportBoxContTwoLiStatisUl{
+	border-left:1px solid #eee ;
+	width: 80%;
+	box-sizing: border-box;
+}
+.reportBoxContTwoLiStatisUl ul li:nth-child(1){
+	border-right: 1px solid #eee;
+}
+.reportBoxBlacklist{
+	border: 1px solid #eee;
+	border-top:0 ;
+	color: #555A5A;
+}
+.queryList{
+	height: 400px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+.reportBoxContBlacklist>li{
+	padding: 10px 10px;
+	border-bottom:1px solid #eee ;
+}
+.reportBoxContBlacklist:first-child{
+	border-right: 1px solid #eee ;
+	width: 20%;
+	box-sizing: border-box;
+}
+.reportBoxContBlacklist:last-child{
+	width: 80%;
+	box-sizing: border-box;
+}
+
+li.reportBoxContBlacklistLi{
+	padding: 0;
+}
+.reportBoxContBlacklistLiUl{
+	width: 50%;
+}
+.reportBoxContBlacklistLiUl>li{
+	padding: 10px 10px;
+	border-bottom: 1px solid #eee;
+}
+.reportBoxContBlacklistLiUl>li:last-child{
+	border-bottom:0 ;
+}
+.reportBoxContBlacklistLiUl:last-child{
+	
+	box-sizing: border-box;
+}
+.reportBoxContBlacklistOne{
+	height: 210px;
+	line-height: 210px;
+}
+.reportBoxContBlacklistLiUl>li>div{
+	width: 50%;
+}
+.query{
+	width: 33.3%;
+}
+li.query{
+	border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+}
+
+.queryUl:last-child{
+	border-bottom: 0;
+}
+.queryUl{
+	border-bottom: 1px solid #eee;
+}
+.queryUl li{
+	width: 33.3%;
+	padding: 10px 10px;
+}
+.phone{
+	width: 50%;
+	border-bottom: 1px solid #eee;
+    padding: 10px 10px;
+}
+
+.identityCard1{
+	width: 50%;
+}
+.identityCard1>li{
+	border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+}
+
+.identityCard2{
+	width: 25%;
+		border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+}
+
+
+.identityCard3{
+	width: 50%;
+}
+.identityCard3>li{
+	border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+}
+.identityCard3>li:last-child{
+	border-bottom: 0;
+}
+.lightGreen{
+	background: #F0F7E7;
+	color: #39C56F;
+}
+.green{
+	background: #39C56F;
+	color: #fff;
+}
+.red{
+	background: #e43;
+	color: #fff;
+}
+.grey{
+	background: #CFCECC;
+	color: #fff;
+}
+.orange{
+	background: #F6AD46;
+	color: #fff;
+}
+.borderfff{
+	border: 0;
+	background: #fff;
+	
+}
+
+.contents{
+	font-size: 30px ;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 100px;
+}

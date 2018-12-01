@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="../../css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/style.min.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight" id="saveMenu">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content" >
+                    <form class="form-horizontal m-t" id="form">
+                        <input type="hidden" name="id" id="id" th:value="${menu.id}" >
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单名称:</label>
+                            <div class="col-sm-4">
+                                <input  class="form-control" th:value="${menu.name}"  name="name" type="text" >
+                            </div>
+                            <label class="col-sm-2 control-label">父菜单:</label>
+                            <div class="col-sm-4">
+                                <input type="hidden" id="parent" name="parent"  >
+                                <input  class="form-control" type="text" id="pName" readonly  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单状态:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control selectV" name="status" id="status" th:attr="v=${menu.status}" >
+                                    <option value="true">启用</option>
+                                    <option value="false">禁用</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-2 control-label">菜单类型:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control selectV" name="type" id="type" th:attr="v=${menu.type}"  >
+                                    <option value="MENU">菜单</option>
+                                    <option value="BUTTON">按钮</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单图标:</label>
+                            <div class="col-sm-4">
+                                <input  class="form-control" type="text" id="icon" name="icon" th:value="${menu.icon}" >
+                            </div>
+                            <label class="col-sm-2 control-label">排序码:</label>
+                            <div class="col-sm-4">
+                                <input  class="form-control" type="text" id="order" name="order" th:value="${menu.orderKey}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单路径:</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control"  type="text" id="url" name="url" th:value="${menu.url}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单权限路径:</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control"  type="text" id="authorityUrl" name="authorityUrl"  th:value="${menu.authorityUrl}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单权限按钮:</label>
+                            <div class="col-sm-10">
+                                <input  class="form-control"  type="text" id="authorityButton" name="authorityButton" th:value="${menu.authorityButton}">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 40px;">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" type="button" onclick="save()">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery.min.js?v=2.1.4"></script>
+<script src="../../js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../../js/content.min.js?v=1.0.0"></script>
+<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="../../js/base.js"></script>
+<script>
+    $(function () {
+       $("#parent").val(parent.PID);
+        $("#pName").val(parent.PNAME);
+    });
+
+    function save() {
+        var data = {};
+        var t = $('#form').serializeArray();
+        $.each(t, function() {
+            data [this.name] = this.value;
+        });
+        basePost("/menu/save.html",data,function (datak) {
+            parent.gengxin();
+        })
+    }
+</script>
+</body>
+</html>

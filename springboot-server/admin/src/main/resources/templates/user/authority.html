@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="../../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="../../ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <link href="../../css/page.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox ibox-title" style="max-height: 540px;">
+                <div class="ibox-content menuTree"  id="menuTree">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+            <div class="ibox-content" style="min-height: 50px;"  >
+                <button class="btn btn-success" onclick="save()">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery.min.js?v=2.1.4"></script>
+<script src="../../js/bootstrap.min.js?v=3.3.5"></script>
+<script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="../../js/hplus.min.js?v=4.0.0"></script>
+<script src="../../js/contabs.min.js"></script>
+<script src="../../js/base.js"></script>
+<script src="../../ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="../../ztree/js/jquery.ztree.excheck.js"></script>
+<script th:inline="javascript">
+    var str = [[${str}]];
+    var userId = '[[${userId}]]';
+    var treeObj ;
+    var setting = {
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                pIdKey: "parent",
+            },
+            key:{
+                name:"name",
+            },
+
+        },
+        check:{
+            enable: true
+        }
+    };
+
+    $(function () {
+        $(".full-height-scroll").slimScroll({height: "100%"});
+        baseGet("/menu/getAll.html",null,function (data) {
+            for (var i = 0; i < data.length; i++) {
+                data[i].urlk = data[i].url;
+                data[i].url = null;
+                if(str.indexOf(data[i].id)>-1){
+                    data[i].checked=true;
+                }
+            }
+            $.fn.zTree.init($("#treeDemo"), setting, data);
+            treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        });
+        $(".menuTree").height($(".gray-bg").height()-100);
+    });
+
+    function save() {
+        var nodes = treeObj.getCheckedNodes(true);
+        var  menuIds = "";
+        for (var i = 0; i <nodes.length ; i++) {
+            menuIds+=","+nodes[i].id;
+        }
+        menuIds = menuIds.replace(",","");
+
+        basePost("/user/saveAuthority.html",{menuIds:menuIds,userId:userId},function (data) {
+            //询问框
+            layer.alert('保存成功!', {
+                icon:1,
+                skin: 'layui-layer-molv',
+            });
+        });
+    }
+</script>
+</body>
+</html>

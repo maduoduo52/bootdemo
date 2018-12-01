@@ -1,0 +1,54 @@
+<div class="row" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>用户列表</h5><span style="margin-left: 20px;margin-top: -15px;" href="" class="btn-sm btn-primary" onclick="add()">新增用户</span>
+        </div>
+        <div class="ibox-content">
+                <div class="row">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr >
+                                <th>用户名称</th>
+                                <th>登录名</th>
+                                <th>状态</th>
+                                <th>手机号码</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="user : ${list}">
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.loginName}" ></td>
+                                <td>
+                                    <span class="btn btn-xs btn-info" th:if="${user.status ==true}">启用</span>
+                                    <span class="btn btn-xs btn-danger" th:if="${user.status ==false}">禁用</span>
+                                </td>
+                                <td th:text="${user.phone}" >1.7</td>
+                                <td>
+                                    <div data-toggle="buttons-checkbox" class="btn-group" >
+                                        <span class="btn btn-xs btn-warning" th:attr="uid=${user.id}" onclick="edit(this)" >修改</span>
+                                        <span class="btn btn-xs btn-danger" th:attr="uid=${user.id}" onclick="del(this)" >删除</span>
+                                        <span class="btn btn-xs btn-info" th:attr="uid=${user.id}" onclick="authority(this)">权限分配</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+<script src="/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script>
+    $(document).ready(function(){
+        authority_buttons();
+        $(".dataTables-example").dataTable();
+        $(".dataTables_length").parent().removeClass("col-sm-6").addClass("col-sm-8");
+        $(".dataTables_filter").parent().removeClass("col-sm-6").addClass("col-sm-4");
+        $(".dataTables_info").parent().removeClass("col-sm-6").addClass("col-sm-9");
+        $(".dataTables_info").parent().attr("style","margin-top:25px;");
+        $(".paging_simple_numbers").parent().removeClass("col-sm-6").addClass("col-sm-3")
+    });
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
+    <link href="../../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../css/animate.min.css" rel="stylesheet">
+    <link href="../../css/style.min.css?v=4.0.0" rel="stylesheet">
+    <link href="../../css/page.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="row" xmlns:th="http://www.w3.org/1999/xhtml">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>用户列表</h5>
+                    </div>
+                    <div class="ibox-content"  style="max-height: 500px;min-height: 500px;">
+                        <div class="row">
+                            <table class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                <tr >
+                                    <th>用户名称</th>
+                                    <th>登录名</th>
+                                    <th>状态</th>
+                                    <th>手机号码</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="user : ${list}">
+                                    <td th:text="${user.name}"></td>
+                                    <td th:text="${user.loginName}" ></td>
+                                    <td>
+                                        <span class="btn btn-xs btn-info" th:if="${user.status ==true}">启用</span>
+                                        <span class="btn btn-xs btn-danger" th:if="${user.status ==false}">禁用</span>
+                                    </td>
+                                    <td th:text="${user.phone}" >1.7</td>
+                                    <td>
+                                        <div data-toggle="buttons-checkbox" class="btn-group" >
+                                            <button class="btn btn-xs btn-primary"
+                                                  th:attr="uid=${user.id},uname=${user.name},uloginName=${user.loginName}" onclick="add(this)">添加</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" xmlns:th="http://www.w3.org/1999/xhtml">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>已选择用户</h5>
+                    </div>
+                    <div class="ibox-content" style="max-height: 430px;min-height: 430px;overflow: auto;">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr >
+                                    <th>名称</th>
+                                    <th>登录名</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <tr class="userId" th:attr="userId=${user.id}"  th:each="user : ${userList}">
+                                    <td th:text="${user.name}"></td>
+                                    <td th:text="${user.loginName}" ></td>
+                                    <td ><span class="btn btn-xs btn-danger" onclick="removeK(this)">删除</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ibox-content" style="text-align: right">
+                        <button class="btn btn-success btn-sm" style="margin-right: 20px;" onclick="save()">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" th:value="${postId}" id="postId"/>
+</div>
+<script src="../../js/jquery.min.js?v=2.1.4"></script>
+<script src="../../js/bootstrap.min.js?v=3.3.5"></script>
+<script src="../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../js/plugins/layer/layer.min.js"></script>
+<script src="../../js/hplus.min.js?v=4.0.0"></script>
+<script src="../../js/contabs.min.js"></script>
+<script src="/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="../../js/base.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".dataTables-example").dataTable();
+        $(".dataTables_length").parent().removeClass("col-sm-6").addClass("col-sm-8");
+        $(".dataTables_filter").parent().removeClass("col-sm-6").addClass("col-sm-4");
+        $(".dataTables_info").parent().removeClass("col-sm-6").addClass("col-sm-9");
+        $(".dataTables_info").parent().attr("style","margin-top:25px;");
+        $(".paging_simple_numbers").parent().removeClass("col-sm-6").addClass("col-sm-3")
+        var users =  $(".userId");
+        for (var i = 0; i <users.length ; i++) {
+            $("[uid='"+users.eq(i).attr("userId")+"']").hide();
+        }
+    });
+    var trDemo ='<tr class="userId" userId="userID">\n' +
+        '            <td>userName</td>\n' +
+        '            <td>loginName</td>\n' +
+        '            <td>\n' +
+        '              <span class="btn btn-xs btn-danger" onclick="removeK(this)">删除</span>\n' +
+        '            </td>\n' +
+        '         </tr>';
+
+   function add(b) {
+       var userID = $(b).attr("uid");
+       var userName = $(b).attr("uname");
+       var loginName = $(b).attr("uloginName");
+       var str = trDemo.replace("userID",userID).replace("loginName",loginName).replace("userName",userName);
+       $("#tbody").append(str);
+       $("[uid='"+userID+"']").hide();
+   }
+   function removeK(b) {
+       var userId = $(b).parent().parent().attr("userId");
+       $(b).parent().parent().remove();
+       $("[uid='"+userId+"']").show();
+   }
+   
+   function save() {
+       var users =  $(".userId");
+       var usStr = "";
+       for (var i = 0; i <users.length ; i++) {
+           usStr+=","+users.eq(i).attr("userId");
+       }
+       usStr = usStr.replace(",","");
+       var postId = $("#postId").val();
+       basePost("/post/saveUser.html",{id:postId,userIds:usStr},function (data) {
+            layer.alert("保存成功",{icon:1, skin: 'layui-layer-molv',})
+       })
+   }
+</script>
+</body>
+</html>

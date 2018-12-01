@@ -1,0 +1,768 @@
+body {
+    margin: 0;
+    color: #333;
+    font: 14px/1.5 "Microsoft YaHei"
+}
+
+li {
+    list-style: none
+}
+
+ul,
+ol {
+    padding: 0;
+    margin: 0
+}
+
+a {
+    text-decoration: none
+}
+
+h1,
+h2,
+h3,
+h4 {
+    padding: 0;
+    margin: 0
+}
+
+.warp_lct .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+
+.warp_lct .clearfix {
+    zoom: 1
+}
+.warp_lct .bb {
+    border-bottom: 1px #c9c9c9 solid
+}
+
+.warp_lct .bt {
+    border-top: 1px #c9c9c9 solid
+}
+
+.warp_lct .bl {
+    border-left: 1px #c9c9c9 solid
+}
+
+.warp_lct .br {
+    border-right: 1px #c9c9c9 solid
+}
+
+.warp_lct .fl {
+    float: left
+}
+
+.warp_lct .fr {
+    float: right
+}
+
+.warp_lct .wrap {
+    width: 100%;
+    padding-top: 18px
+}
+
+.warp_lct .main {
+    width: 1140px;
+    margin: 0 auto;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+    -webkit-box-shadow: 0 0 10px #bbb;
+    -moz-box-shadow: 0 0 10px #bbb;
+    box-shadow: 0 0 10px #bbb
+}
+
+.warp_lct .title {
+    font-size: 24px;
+    color: #666;
+    text-align: center;
+    height: 140px;
+    line-height: 140px
+}
+
+.warp_lct h4 {
+    width: 1040px;
+    margin: 0 auto;
+    background-color: #0066bb;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 44px;
+    height: 44px;
+    border-radius: 4px 4px 0 0
+}
+
+.warp_lct .backGray {
+    background-color: #f5f5f5
+}
+
+.warp_lct .backYellow {
+    background-color: #fcf8e3
+}
+
+.warp_lct .backGreen {
+    background-color: #dff0d8
+}
+
+.warp_lct .userApply {
+    width: 1040px;
+    margin: 0 auto 20px
+}
+
+.warp_lct .userApply li {
+    padding: 10px 0
+}
+
+.warp_lct .checkName {
+    float: left;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #f5f5f5;
+    margin-right: 10px
+}
+
+.warp_lct .checkResult {
+    float: left;
+    line-height: 30px;
+    color: #666
+}
+
+.warp_lct .markGreen {
+    background-color: #5cb85c;
+    padding: 0 4px;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 22px;
+    margin-right: 12px;
+    -webkit-border-radius: 4px
+}
+
+.warp_lct .markGray {
+    background-color: #777;
+    padding: 0 4px;
+    margin-right: 12px;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 22px;
+    -webkit-border-radius: 4px
+}
+
+.warp_lct .idCardLeft,
+.warp_lct .telLeft,
+.warp_lct .addLeft {
+    width: 550px
+}
+
+.warp_lct .idCard {
+    margin-right: 12px
+}
+
+.warp_lct .idCardRight,
+.warp_lct .telRight,
+.warp_lct .addRight {
+    width: 380px
+}
+
+.warp_lct .telLeft span,
+.warp_lct .telRight span {
+    margin-right: 12px
+}
+
+.warp_lct .telRight .info1,
+.warp_lct .telRight .info2,
+.warp_lct .telRight .info3 {
+    line-height: 28px
+}
+
+.warp_lct .contactInfo0 .markGreen {
+    margin-left: 30px
+}
+
+.warp_lct .userInfo {
+    margin-bottom: 25px
+}
+
+.warp_lct .userInfoTitle {
+    width: 98px;
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .userInfoTable {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px #c9c9c9 solid;
+    color: #666
+}
+
+.warp_lct .userInfoTable .thead {
+    width: 110px;
+    line-height: 314px;
+    text-align: center
+}
+
+.warp_lct .userInfoTable .tbody .dataName {
+    line-height: 34px;
+    width: 195px;
+    background-color: #f5f5f5;
+    padding-left: 15px;
+    background-color: #f5f5f5
+}
+
+.warp_lct .userInfoTable .tbody .data {
+    width: 708px;
+    padding: 8px 0 0 10px;
+    height: 26px
+}
+
+.warp_lct .table2 .thead {
+    height: 244px
+}
+
+.warp_lct .userActive {
+    margin-bottom: 25px
+}
+
+.warp_lct .userActiveTitle {
+    width: 98px;
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .userActiveTable {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px #c9c9c9 solid;
+    color: #666
+}
+
+.warp_lct .userActiveTable li {
+    line-height: 30px
+}
+
+.warp_lct .activeCheckName {
+    width: 200px
+}
+
+.warp_lct .activeCheckResult {
+    width: 300px
+}
+
+.warp_lct .activeCheckReason {
+    width: 530px
+}
+
+.warp_lct .userActiveTable .thead {
+    text-align: center;
+    color: #333
+}
+
+.warp_lct .td .activeCheckName {
+    padding-left: 15px;
+    width: 185px
+}
+
+.warp_lct .td .activeCheckResult {
+    padding-left: 30px;
+    width: 270px
+}
+
+.warp_lct .td .activeCheckReason {
+    padding-left: 35px;
+    width: 495px
+}
+
+.warp_lct .operatorData {
+    margin-bottom: 25px
+}
+
+.warp_lct .operatorDataTitle {
+    width: 112px;
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .operatorDataTable {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px #c9c9c9 solid;
+    color: #666
+}
+
+.warp_lct .operatorDataTable span {
+    float: left;
+    text-align: center;
+    line-height: 40px
+}
+
+.warp_lct .operatorDataTable .operator,
+.warp_lct .operatorDataTable .month,
+.warp_lct .operatorDataTable .callTimes,
+.warp_lct .operatorDataTable .callingTimes,
+.warp_lct .operatorDataTable .calledTimes,
+.warp_lct .operatorDataTable .messageNum {
+    width: 82px
+}
+
+.warp_lct .operatorDataTable .telNum {
+    width: 122px
+}
+
+.warp_lct .operatorDataTable .place {
+    width: 65px
+}
+
+.warp_lct .operatorDataTable .callingSec {
+    width: 130px
+}
+
+.warp_lct .operatorDataTable .calledSec {
+    width: 130px
+}
+
+.warp_lct .operatorDataTable .bill {
+    width: 90px
+}
+
+.warp_lct .operatorDataTable .td .bill {
+    width: 76px;
+    padding: 9px 0 0 14px;
+    height: 31px
+}
+
+.warp_lct .operatorDataTable .td .bill span {
+    line-height: 22px
+}
+
+.warp_lct .markRed {
+    background-color: #d9534f;
+    padding: 0 4px;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 22px;
+    -webkit-border-radius: 4px;
+    margin-right: 12px
+}
+
+.warp_lct .contactArea {
+    margin-bottom: 25px
+}
+
+.warp_lct .contactAreaTitle {
+    width: 128px;
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .contactAreaTable {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px #c9c9c9 solid;
+    color: #666
+}
+
+.warp_lct .contactAreaTable span {
+    float: left;
+    text-align: center;
+    line-height: 40px
+}
+
+.warp_lct .contactAreaTable .area,
+.warp_lct .contactAreaTable .telTimes,
+.warp_lct .contactAreaTable .calloutTimes,
+.warp_lct .contactAreaTable .callingTimes {
+    width: 82px
+}
+
+.warp_lct .contactAreaTable .callinSec,
+.warp_lct .contactAreaTable .calloutSec,
+.warp_lct .contactAreaTable .callinTimesPer,
+.warp_lct .contactAreaTable .calloutTimesPer,
+.warp_lct .contactAreaTable .callinSecPer,
+.warp_lct .contactAreaTable .calloutSecPer {
+    width: 117px
+}
+
+.warp_lct .callData {
+    margin-bottom: 25px
+}
+
+.warp_lct .callDataTitle {
+    width: 130px;
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .callDataTable {
+    width: 1040px;
+    margin: 0 auto;
+    border: 1px #c9c9c9 solid;
+    color: #666
+}
+
+.warp_lct .callDataTable span {
+    float: left;
+    padding-left: 10px;
+    line-height: 40px
+}
+
+.warp_lct .callDataTable .thead {
+    text-align: center
+}
+
+.warp_lct .callDataTable .callNum {
+    width: 126px
+}
+
+.warp_lct .callDataTable .thead .internetMark {
+    padding: 0;
+    height: 40px;
+    width: 312px
+}
+
+.warp_lct .callDataTable .internetMark {
+    width: 302px;
+    height: 31px;
+    padding-top: 9px
+}
+
+.warp_lct .callDataTable .internetMark span {
+    padding: 0 4px;
+    height: 22px;
+    line-height: 22px
+}
+
+.warp_lct .markBlue {
+    background-color: #428bca;
+    padding: 0 4px;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 22px;
+    -webkit-border-radius: 4px
+}
+
+.warp_lct .callDataTable .type {
+    width: 132px
+}
+
+.warp_lct .callDataTable .place {
+    width: 70px
+}
+
+.warp_lct .callDataTable .contactTimes {
+    width: 80px
+}
+
+.warp_lct .callDataTable .contactSec {
+    width: 100px
+}
+
+.warp_lct .callDataTable .callingTimes,
+.warp_lct .callDataTable .calledTimes {
+    width: 70px
+}
+
+.warp_lct .contactData {
+    padding-bottom: 25px;
+    text-align: center
+}
+
+.warp_lct .contactDataTitle,
+.warp_lct .addressTitle {
+    height: 30px;
+    color: #0066bb;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 51px;
+    margin-top: 22px;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0
+}
+
+.warp_lct .contactDataTitle {
+    width: 327px
+}
+
+.warp_lct .addressTitle {
+    width: 104px
+}
+
+.warp_lct .contactDataTable,
+.warp_lct .tripinfo,
+.warp_lct .ebusiness,
+.warp_lct .addressTable {
+    width: 1040px;
+    margin: 0 auto 40px;
+    border: 1px #c9c9c9 solid;
+    color: #666;
+    line-height: 40px
+}
+
+.warp_lct .contactDataTable span,
+.warp_lct .tripinfo span,
+.warp_lct .ebusiness span,
+.warp_lct .addressTable span {
+    float: left;
+    padding-left: 10px
+}
+
+.warp_lct .backRed {
+    background-color: #f2dede
+}
+
+.warp_lct .contactName {
+    width: 90px
+}
+
+.warp_lct .contactBegin,
+.warp_lct .contactEnd,
+.warp_lct .contactTel {
+    width: 205px
+}
+
+.warp_lct .nearContactTimes {
+    width: 280px
+}
+
+.warp_lct .address {
+    width: 190px
+}
+
+.warp_lct .spend {
+    width: 260px
+}
+
+.warp_lct .consigneeName {
+    width: 260px
+}
+
+.warp_lct .consigneeTel {
+    width: 280px
+}
+
+#warp_lct {
+    /*display: none;*/
+    /*  position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);*/
+}
+
+#warp_lct #fanhui_lct {
+    position: fixed;
+    top: 50px;
+    left: 1%;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+
+/*tongxunlu--201610201506*/
+
+.default_lct {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: rgba(0,0,0,0.35);
+    min-width:100%;
+    min-height:100%;
+  
+    font-size:14px;
+    /*display: none;*/
+    opacity: 0;
+    z-index: -1;
+}
+
+.opacity1{
+    opacity: 1;
+    z-index:22;
+}
+.txl_lct_inner{width:540px;margin:0 auto;background: #fff;min-height: 1081px;position: relative;}
+.txl_01{height:58px;line-height: 58px;text-align: center;font-size:18px;}
+.txl_1{position: absolute;top:33px;right:31px;z-index: 2;color: #636363;font-size: 14px;cursor: pointer;}
+.txl_warp_lct{width:480px;position: relative;overflow: hidden;margin:0 auto;}
+.top_txl_3,.txl_list{border:1px solid #d3d2d2;}
+.top_txl_3{overflow: hidden;background: #f6f6f6;border-bottom:none;}
+.top_3_1{float: left;width: 33.33%;height:41px;line-height: 41px;text-align: center;}
+.null_txl{display: none;}
+.diva_out{overflow: hidden;border-bottom:1px solid #d3d2d2;}
+.txl_list{overflow: hidden;}
+.item_lct_001{float: left;width: 33.33%;text-align: center;height:25px;line-height: 25px;}
+.item_lct_mid_001,.mid_lct_1{border-left:1px solid #d3d2d2;border-right:1px solid #d3d2d2;width:31.5%;}
+.txl_list{margin-bottom:25px;}
+#txl_lct .holder a{padding:11px;border:1px solid #d3d2d2;border-radius: 6px;-moz-border-radius:6px;}
+#txl_lct .holder a:hover{background-color: #00aeff;
+    color: #fff;}
+
+/*tongxunlu--201610201506*/
+.panel{top:0 !important;left:0 !important;}
+
+
+/*同盾报告*/
+#warp_tyl{
+    display: none;
+}
+#warp_tyl #fanhui_tyl {
+    position: fixed;
+    top: 50px;
+    left: 1%;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+}
+.td-container{
+    width: 1200px;
+    margin: 0 auto 100px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    color: #141414;
+}
+.td-container .td-top{
+    padding: 36px 0 30px;
+}
+.td-container .td-top h2{
+    font-size: 28px;
+}
+canvas{
+    margin: 80px auto 0;
+}
+.td-num {
+    font-size: 12px;
+    margin-left: 28px;
+}
+.td-rep-time{
+    float: right;
+    padding-top: 10px;
+}
+.td-score{
+    margin-bottom: 35px;
+    background-color: #fff;
+}
+.td-sec-per{
+    width: 30%;
+    height: 360px;
+}
+.td-score-info{
+    padding: 154px 0 104px;
+    width: 70%;
+}
+.td-score-info1{
+    font-size: 22px;
+    font-weight: bold;
+}
+.td-score-info2{
+    font-size: 18px;
+}
+.td-score-info2 span{
+    display: inline-block;
+    color: #61a0d5;
+    border-bottom: 1px solid #61a0d5;
+}
+.td-risk{
+    background-color: #fff;
+}
+.td-risk h3{
+    padding: 50px;
+    font-size: 22px;
+    color: #666;
+
+}
+.td-risk table {
+    width: 1100px;
+    margin: 0 auto;
+}
+.td-risk table tr{
+    border: 4px #ebebeb solid;
+    color: #b2b4b3;
+    font-size: 18px;
+}
+.td-risk td,.td-risk th{
+    padding: 18px 0 18px 20px;
+    text-align: left;
+}
+.risk-group{
+    width: 180px;
+}
+.risk-name .risk-sure{
+    width: 39px;
+    height: 33px;
+    background: url("../images/risk-sure.png");
+    font-size: 16px;
+    color: #333;
+}
+.risk-list{
+    overflow: hidden;   
+    padding:35px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+.risk-list:last-child{
+    border: none;
+}
+.risk-list ul li{
+    list-style: initial;
+    color: #ac202d;
+}
+.risk_item_name{
+    width: 370px;
+    float: left;
+}
+.risk_item_level{
+    width: 80px;
+    float: left;
+    padding-left: 20px;
+}
+.risk_item_list{
+    width: 380px;
+    float: left;
+    padding-left: 20px;
+}
+.td-noninfo{padding-left: 30%;font-size: 18px;padding-top:1%;display: none;}
+/*同盾报告*/
