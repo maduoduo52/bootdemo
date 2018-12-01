@@ -1,4 +1,4 @@
-package com.mdd.admin.controller;
+package com.mdd.admin.controller.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mdd.admin.config.Result;
