@@ -3,11 +3,13 @@ package com.mdd.admin.config.interceptor;
 import com.alibaba.fastjson.JSON;
 import com.mdd.admin.config.*;
 import com.mdd.admin.config.constant.LoginConstant;
+import com.mdd.admin.config.constant.NotInterceptor;
 import com.mdd.admin.config.exception.NeedLoginException;
 import com.mdd.admin.config.redis.RedisTemplateUtils;
 import com.mdd.admin.model.SysUserEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -94,7 +96,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //权限检测
         if (userEntity.getAdmin() == null || !userEntity.getAdmin()) {
             String uri = request.getRequestURI();
-            if (uri.equals("/index.html") || uri.equals("/logOut.html")) {
+            if (NotInterceptor.INDEX.equals(uri) || NotInterceptor.LOGOUT.equals(uri)) {
                 //主页和登出不需要权限校验
                 return true;
             }
