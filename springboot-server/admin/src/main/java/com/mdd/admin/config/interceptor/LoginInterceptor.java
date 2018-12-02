@@ -94,7 +94,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //权限检测
         if (userEntity.getAdmin() == null || !userEntity.getAdmin()) {
             String uri = request.getRequestURI();
-            if (uri.equals("index.html") || uri.equals("logOut.html")) {
+            if (uri.equals("/index.html") || uri.equals("/logOut.html")) {
                 //主页和登出不需要权限校验
                 return true;
             }

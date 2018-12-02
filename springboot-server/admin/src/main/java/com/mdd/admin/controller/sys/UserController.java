@@ -124,7 +124,9 @@ public class UserController {
             sysOrgEntity.setPwd(MD5Utils.encryptByMD5(sysOrgEntity.getPwd() + entity.getSalt()));
             flag = sysUserService.updateById(sysOrgEntity);
         } else {
-            sysOrgEntity.setSalt(IdWorkerUtil.getIdString());
+            String salt = IdWorkerUtil.getIdString();
+            sysOrgEntity.setPwd(MD5Utils.encryptByMD5(sysOrgEntity.getPwd() + salt));
+            sysOrgEntity.setSalt(salt);
             flag = sysUserService.insert(sysOrgEntity);
         }
         if (flag) {
