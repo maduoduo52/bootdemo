@@ -209,7 +209,7 @@ public class LoginController {
         if (sysUserEntity == null) {
             return Result.error("错误的用户名或者密码！");
         }
-        //密码解密
+        //密码加密
         String md5Str = MD5Utils.encryptByMD5(pwd + sysUserEntity.getSalt());
         if (!md5Str.equals(sysUserEntity.getPwd())) {
             return Result.error("错误的用户名或者密码！");

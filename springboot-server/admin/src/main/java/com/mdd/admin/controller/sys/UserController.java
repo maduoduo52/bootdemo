@@ -3,6 +3,7 @@ package com.mdd.admin.controller.sys;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mdd.admin.config.IdWorkerUtil;
 import com.mdd.admin.config.IgnoreLogin;
+import com.mdd.admin.config.MD5Utils;
 import com.mdd.admin.config.Result;
 import com.mdd.admin.model.SysPostEntity;
 import com.mdd.admin.model.SysUserEntity;
@@ -119,8 +120,8 @@ public class UserController {
     public Result save(SysUserEntity sysOrgEntity) throws Exception {
         boolean flag;
         if (sysOrgEntity.getId() != null) {
-            //TODO MD5
-            sysOrgEntity.setPwd(null);
+            SysUserEntity entity = sysUserService.selectById(sysOrgEntity.getId());
+            sysOrgEntity.setPwd(MD5Utils.encryptByMD5(sysOrgEntity.getPwd() + entity.getSalt()));
             flag = sysUserService.updateById(sysOrgEntity);
         } else {
             sysOrgEntity.setSalt(IdWorkerUtil.getIdString());
