@@ -42,7 +42,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver  #mysql驱动
     url: jdbc:mysql://localhost:3306/bootdemo?useSSL=false
     username: root
-    password: lhm035730
+    password: 888888
     hikari:
       minimum-idle: 5
       maximum-pool-size: 15
