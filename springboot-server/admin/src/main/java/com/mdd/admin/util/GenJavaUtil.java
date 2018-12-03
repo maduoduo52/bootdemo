@@ -175,9 +175,9 @@ public class GenJavaUtil {
         String str = "package "+packName+".table;\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "public class "+className+"Table {\n" ;
         for (Map<String, String> m : genJavaBD.getFileds()) {
@@ -216,9 +216,9 @@ public class GenJavaUtil {
                 "STR\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "@Data\n" +
                 "@TableName(\""+genJavaBD.getName()+"\")\n"+
@@ -284,9 +284,9 @@ public class GenJavaUtil {
                 "STR\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "@Data\n" +
                 "public class "+className+"DTO extends PageDTO implements Serializable{\n" ;
@@ -351,9 +351,9 @@ public class GenJavaUtil {
                 "import org.apache.ibatis.annotations.Mapper;\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "@Mapper\n" +
                 "public interface "+className+"Dao extends BaseMapper<"+className+"Entity> {\n" +
@@ -384,9 +384,9 @@ public class GenJavaUtil {
                 "import "+entityPack+";\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "public interface "+className+"Service extends BaseServerIService<"+className+"Entity> {\n" +
                 "}";
@@ -422,9 +422,9 @@ public class GenJavaUtil {
                 "import org.springframework.transaction.annotation.Transactional;\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "@Service\n" +
                 "@Transactional(rollbackFor = Exception.class)\n"+
@@ -459,9 +459,9 @@ public class GenJavaUtil {
                 "import org.springframework.web.bind.annotation.*;\n" +
                 "\n" +
                 "/**\n" +
-                " * @description "+genJavaBD.getMark()+"\n"+
+                " * @Desc "+genJavaBD.getMark()+"\n"+
                 " * @Author "+author+"\n" +
-                " * @Date "+date+"\n" +
+                " * @Create "+date+"\n" +
                 " */\n" +
                 "@RestController\n" +
                 "@RequestMapping(value = \""+className.substring(0, 1).toLowerCase() + className.substring(1)+"\")\n"+
