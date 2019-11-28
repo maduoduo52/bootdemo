@@ -83,3 +83,15 @@ login:
   time: 3600
   # 单实例登录
   owner: true
+
+xxl:
+  job:
+    admin:
+      address: http://122.51.238.59:9980/xxl-job-admin
+    executor:
+      appname: mdd-job-executor
+      ip:
+      port: 9999
+      accessToken:
+      logpath: e:/xxllog/
+      logretentiondays: -1

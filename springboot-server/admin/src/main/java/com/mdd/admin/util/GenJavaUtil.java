@@ -1,6 +1,9 @@
 package com.mdd.admin.util;
 
+import com.alibaba.fastjson.JSON;
+import com.mdd.admin.config.mybatisplus.mybatisplus.EwGenJavaBD;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +28,7 @@ public class GenJavaUtil {
     static String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME+"?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8";
     // 数据库的用户名与密码，需要根据自己的设置
     static String USER = "root";
-    static String PASS = "lhm035730";
+    static String PASS = "888888";
 
     //包名
     static String packName = "com.mdd.admin";
