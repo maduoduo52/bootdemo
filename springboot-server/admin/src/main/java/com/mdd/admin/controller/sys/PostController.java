@@ -2,6 +2,7 @@ package com.mdd.admin.controller.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mdd.admin.config.Result;
+import com.mdd.admin.config.SubmitValite;
 import com.mdd.admin.model.SysPostEntity;
 import com.mdd.admin.model.SysPostMenuEntity;
 import com.mdd.admin.model.SysUserEntity;
@@ -63,6 +64,7 @@ public class PostController {
      * @throws Exception
      */
     @GetMapping("selectList.html")
+    @SubmitValite(times = 5)
     public String selectUserList(Long orgId, Model model) throws Exception{
         EntityWrapper entityWrapper = new EntityWrapper();
         if(orgId!=null){

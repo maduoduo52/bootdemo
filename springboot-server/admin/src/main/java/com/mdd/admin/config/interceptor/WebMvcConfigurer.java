@@ -1,5 +1,6 @@
 package com.mdd.admin.config.interceptor;
 
+import com.mdd.admin.config.SubmitValiteInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
@@ -91,5 +92,10 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(source);
         return matcher.matches();
+    }
+
+    @Bean
+    public SubmitValiteInterceptor tokenInterceptor(){
+        return new SubmitValiteInterceptor();
     }
 }

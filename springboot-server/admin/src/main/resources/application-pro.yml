@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource  #ʹ使用 Hikari连接池
+    driver-class-name: com.mysql.jdbc.Driver  #mysql驱动
+    url: jdbc:mysql://122.51.238.59:3306/bootdemo?useSSL=false
+    username: root
+    password: Lhm035730!
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select 1
+
+  #redis相关配置
+  redis:
+    database: 2 # Redis数据库索引（默认为0）
+    host: 122.51.238.59 # Redis服务器地址
+    port: 6379 # Redis服务器连接端口
+    password: # Redis服务器连接密码（默认为空）
+    timeout: 2000ms  # 连接超时时间（毫秒）
+    lettuce:
+      pool:
+        max-active: 8 # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8 # 连接池中的最大空闲连接
+        min-idle: 2  # 连接池中的最小空闲连接
+
+xxl:
+  job:
+    admin:
+      address: http://122.51.238.59:9980/xxl-job-admin
+    executor:
+      appname: mdd-job-executor
+      ip:
+      port: 9999
+      accessToken:
+      logpath: e:/xxllog/
+      logretentiondays: -1
